@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode Spacebar;
     public KeyCode L;
     public KeyCode R;
-    public transform groundCheck;
+    public Transform groundCheck;
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isGrounded;
@@ -26,10 +26,10 @@ public class PlayerController : MonoBehaviour
     {
      if(Input.GetKeyDown(Spacebar)&& isGrounded) //When user presses the space button ONCE
         {
-            Jump(); //see function definition below
+            Jump(); 
         }
 
-        if (Input.GetKey(L)) //When user presses the left arrow button
+        if (Input.GetKey(L)) 
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //player character moves horizontally to the left along the x-axis without disrupting jump
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(R)) //When user presses the left arrow button
+        if (Input.GetKey(R)) 
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //player character moves horizontally to the right along the x-axis without disrupting jump
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         //player character jumps vertically along the y-axis without disrupting horizontal walk
     }
 
-    void fixedUpdate()
+    void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         //checks if the player character is grounded or not
